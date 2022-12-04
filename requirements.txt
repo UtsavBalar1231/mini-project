@@ -2,3 +2,8 @@ gtts
 SpeechRecognition
 PyAudio
 pyttsx3
+torch
+scipy
+librosa
+transformers
+wikipedia

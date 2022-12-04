@@ -1,3 +1,5 @@
+import os
+
 if __name__ == "__main__":
     while True:
         print("Enter your choice:")
@@ -5,20 +7,24 @@ if __name__ == "__main__":
         print("2. for date and time")
         print("3. for text editor")
         print("4. for voice recorder")
+        print("5. for voice to text")
         
         choice = input()
         
         if choice == "1":
-            print("calculator")
+            os.system("python ./textFunctions/calculator.py")
             break
         elif choice == "2":
-            print("date and time")
+            os.system("python ./textFunctions/date_time.py")
             break
         elif choice == "3":
-            print("text editor")
+            os.system("python ./textFunctions/text_editor.py")
             break
         elif choice == "4":
-            print("voice recorder")
+            os.system("python ./textFunctions/voice_recorder.py")
+            break
+        elif choice == "5":
+            os.system("python ./textFunctions/voice_to_text.py")
             break
         else:
             print("Invalid choice. Please try again")
