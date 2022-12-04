@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog, Text
-import os
+from tkinter import filedialog
 
 
 class TextEditor(tk.Frame):

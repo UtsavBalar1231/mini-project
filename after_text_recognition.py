@@ -9,9 +9,9 @@ if __name__ == "__main__":
         print("4. for voice recorder")
         print("5. for voice to text")
         print("6. for settings alarm")
-        
+
         choice = input()
-        
+
         if choice == "1":
             os.system("python ./textFunctions/calculator.py")
             break
@@ -32,5 +32,3 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid choice. Please try again")
-    
-    
