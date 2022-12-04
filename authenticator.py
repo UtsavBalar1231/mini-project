@@ -19,13 +19,14 @@ def authenticate_text(key):
         return False
     
 def authenticate_voice(key):
-    voice_keywords = ["hey", "hello", "hey ace", "hi ace", "hello ace"]
+    voice_keywords = ["hey", "hello", "hi"]
 
     """
     This function authenticates the user using voice command
     """
-    if key in voice_keywords:
-        print("Welcome to ACE!")
-        voice_analyser.speak("Authenticated, Welcome to ACE!")
+    for k in key.split():
+        if k in voice_keywords:
+            print("Welcome to ACE!")
+            voice_analyser.speak("Authenticated, Welcome to ACE!")
+            return True
         
-        return True

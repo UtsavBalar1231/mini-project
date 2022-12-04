@@ -2,11 +2,13 @@ import librosa
 import numpy as np
 import os
 import soundfile as sf
+import time
 import torch
 from IPython.display import Audio
 from scipy.io.wavfile import read, write
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
+print("Loading the model... please wait")
 model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
 processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
 
@@ -34,7 +36,7 @@ def speech_to_text(audio_file, sampling_rate):
 if __name__ == "__main__":
     os.system("rm -rf ./output.wav")
     os.system("python ./textFunctions/voice_recorder.py")
-    
+    time.sleep(1)
     audio_file, sampling_rate = read_audio_file("output.wav")
     transcription = speech_to_text(audio_file, 16000)
     print(transcription)

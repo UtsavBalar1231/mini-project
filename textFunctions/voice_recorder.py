@@ -1,15 +1,12 @@
 # voice recorder in python
 import pyaudio
 import wave
-import os
-import sys
-import time
 
 def record_audio():
     CHUNK = 1024
     FORMAT = pyaudio.paInt16
     CHANNELS = 2
-    RATE = 44100
+    RATE = 16000
     RECORD_SECONDS = 5
     WAVE_OUTPUT_FILENAME = "output.wav"
 
@@ -20,6 +17,7 @@ def record_audio():
                 rate=RATE, input=True,
                 frames_per_buffer=CHUNK)
     print("recording...")
+    
     frames = []
 
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):

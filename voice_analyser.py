@@ -1,7 +1,6 @@
 import pyttsx3
-import gtts
 import speech_recognition as sr
-
+import time
 
 def voice_recognition():
     """
@@ -16,19 +15,20 @@ def voice_recognition():
             # Use the microphone as source for input.
             with sr.Microphone() as source:
                 # Wait for half a second to let the recognizer adjust the
-                r.adjust_for_ambient_noise(source, duration=0.5)
+                # r.adjust_for_ambient_noise(source, duration=0.2)
 
                 # Listen to the audio input
                 print("Listening...")
                 speak("Listening")
                 audio = r.listen(source)
-
+                # time.sleep(1)
+                
                 # Recognize speech using Google Speech Recognition
                 print("Recognizing...")
                 speak("Recognizing")
                 # Convert the audio input to text
-                query = r.recognize_google(audio, language='en-in')
-
+                query = r.recognize_google(audio)
+                print("You said: " + query)
                 # Return the text
                 return query.lower()
         except sr.UnknownValueError:
@@ -46,6 +46,7 @@ def speak(input):
     engine.setProperty('rate', 130)
     engine.say(input)
     engine.runAndWait()
+    time.sleep(1)
 
 
 def analyse_voice():
@@ -55,5 +56,6 @@ def analyse_voice():
     speak("Hello, I am ACE. You are using voice control.")
     # Get the text from the audio input
     query = voice_recognition()
+    print(query)
     # Return the text
     return query
