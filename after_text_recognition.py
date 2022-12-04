@@ -8,6 +8,7 @@ if __name__ == "__main__":
         print("3. for text editor")
         print("4. for voice recorder")
         print("5. for voice to text")
+        print("6. for settings alarm")
         
         choice = input()
         
@@ -25,6 +26,9 @@ if __name__ == "__main__":
             break
         elif choice == "5":
             os.system("python ./textFunctions/voice_to_text.py")
+            break
+        elif choice == "6":
+            os.system("python ./textFunctions/set_alarm.py")
             break
         else:
             print("Invalid choice. Please try again")

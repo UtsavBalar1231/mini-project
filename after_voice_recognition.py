@@ -16,6 +16,9 @@ if __name__ == "__main__":
 
     elif "date" in query:
         voiceFunctions.speakDate()
+        
+    elif "set alarm" or "alarm" in query:
+        voiceFunctions.setAlarm()
 
     elif "record" in query:
         voiceFunctions.recordAudio()

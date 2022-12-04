@@ -1,9 +1,11 @@
+import datetime
+import os
+import webbrowser
 import pyttsx3
 import speech_recognition as sr
-import datetime
-import voice_analyser
 import wikipedia
-import webbrowser
+import voice_analyser
+
 
 def recordAudio():
     # Record Audio
@@ -46,16 +48,22 @@ def speakDate():
               "July", "August", "September", "October", "November", "December"]
     voice_analyser.speak("The date is " + str(date.day) +
                          " " + months[date.month - 1] + " " + str(date.year))
-    
+
+
 def WikipediaSearch():
     voice_analyser.speak("What do you want to search on Wikipedia?")
     query = voice_analyser.voice_recognition()
     results = wikipedia.summary(query, sentences=2)
     voice_analyser.speak("According to Wikipedia")
     voice_analyser.speak(results)
-    
+
+
 def BrowserSearch():
     voice_analyser.speak("What do you want to search on the browser?")
     query = voice_analyser.voice_recognition()
     webbrowser.open_new_tab(query)
     voice_analyser.speak("Here is what I found for " + query)
+
+
+def setAlarm():
+    os.system("python ./textFunctions/set_alarm.py")
